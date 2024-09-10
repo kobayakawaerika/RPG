@@ -50,16 +50,20 @@ public class Main {
 		// 第何回戦かを示すカウンター変数
 		int count = 1;
 
-		// 人間グループから1人選択
-		Human selectedHuman = choiceHuman(humans);
-
-		// モンスターグループから1人選択
-		Monster selectedMonster = choiceMonster(monsters);
+		// ★変数の宣言だけ
+		Human selectedHuman;
+		Monster selectedMonster;
 
 		// 勝敗がつくまで無限ループ
 		while (true) {
 			System.out.printf("\n★ 第%d回戦 ==========\n", count);
 			System.out.println("\n[人間のターン！]\n");
+
+			// 人間グループから1人選択
+			selectedHuman = choiceHuman(humans);
+
+			// モンスターグループから1人選択
+			selectedMonster = choiceMonster(monsters);
 
 			// 選ばれた人間が、選ばれたモンスターを攻撃
 			selectedHuman.attack(selectedMonster);
