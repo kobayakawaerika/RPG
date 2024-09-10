@@ -19,18 +19,18 @@ public class Main {
 		System.out.println("★★ ==== 戦いの開始だ！！ ==== ★★");
 
 		// Brave（勇者）, Fighter（戦士）, Wizard（魔法使い）クラスの各インスタンスを生成
-		Human brave = new Brave("沖田総司","剣"); //勇者
+		Human brave = new Brave("沖田総司", "剣"); //勇者
 		Human fighter = new Fighter("金太郎", "斧"); //戦士
 		Human wizard = new Wizard("安倍晴明", "魔法"); //魔法使い
-		
+
 		// 人間グループのリストを空で生成
 		List<Human> humans = new ArrayList<>();
-        
+
 		// 勇者、戦士、魔法使いを人間グループのリストに追加
 		humans.add(brave);
 		humans.add(fighter);
 		humans.add(wizard);
-		
+
 		// Slime（スライム）, Oak（オーク）, Dragon（ドラゴン）クラスの各インスタンスを生成
 		Monster slime = new Slime("キングスライム", "体当たり");
 		Monster oak = new Oak("オーキング", "槍");
@@ -38,8 +38,8 @@ public class Main {
 
 		// モンスターグループのリストを空で生成
 		List<Monster> monsters = new ArrayList<>();
-		
-        // スライム、オーク、ドラゴンをモンスターグループのリストに追加
+
+		// スライム、オーク、ドラゴンをモンスターグループのリストに追加
 		monsters.add(slime);
 		monsters.add(oak);
 		monsters.add(dragon);
@@ -49,23 +49,21 @@ public class Main {
 
 		// 第何回戦かを示すカウンター変数
 		int count = 1;
-		
+
+		// 人間グループから1人選択
+		Human selectedHuman = choiceHuman(humans);
+
+		// モンスターグループから1人選択
+		Monster selectedMonster = choiceMonster(monsters);
+
 		// 勝敗がつくまで無限ループ
 		while (true) {
-
 			System.out.printf("\n★ 第%d回戦 ==========\n", count);
-
 			System.out.println("\n[人間のターン！]\n");
 
-			// 人間グループから1人選択
-			Human selectedHuman = choiceHuman(humans);
-			
-			// モンスターグループから1人選択
-			Monster selectedMonster = choiceMonster(monsters);
-            
 			// 選ばれた人間が、選ばれたモンスターを攻撃
 			selectedHuman.attack(selectedMonster);
-			
+
 			// モンスターのHPが0以下になれば、モンスターは倒れ、そのモンスターをモンスターグループから削除
 			if (selectedMonster.getHp() <= 0) {
 				monsters.remove(selectedMonster);
@@ -81,13 +79,13 @@ public class Main {
 			}
 
 			System.out.println("\n[モンスターのターン！]\n");
-			
+
 			// 人間グループから1人選択
 			choiceHuman(humans);
-			
+
 			// モンスターグループから1人選択
 			selectedMonster = choiceMonster(monsters);
-			
+
 			// 選ばれたモンスターが、選ばれた人間を攻撃
 			selectedMonster.attack(selectedHuman);
 
@@ -104,10 +102,10 @@ public class Main {
 				System.out.println(" #### 人間たちは敗北した ####");
 				break;
 			}
-			
+
 			// 現在の各グループの状態を一覧表示
 			showGroupInfos(humans, monsters);
-			
+
 			// ループ変数を1増やす
 			count++;
 		}
@@ -145,5 +143,4 @@ public class Main {
 			System.out.println(monster);
 		}
 	}
-
 }
