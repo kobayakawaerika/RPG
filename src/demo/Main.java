@@ -85,7 +85,7 @@ public class Main {
 			System.out.println("\n[モンスターのターン！]\n");
 
 			// 人間グループから1人選択
-			choiceHuman(humans);
+			selectedHuman = choiceHuman(humans);
 
 			// モンスターグループから1人選択
 			selectedMonster = choiceMonster(monsters);
