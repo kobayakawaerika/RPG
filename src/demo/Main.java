@@ -5,8 +5,12 @@ import java.util.List;
 
 import bases.Human;
 import bases.Monster;
-import humans.*;
-import monsters.*;
+import humans.Brave;
+import humans.Fighter;
+import humans.Wizard;
+import monsters.Dragon;
+import monsters.Oak;
+import monsters.Slime;
 import utils.Dice;
 
 public class Main {
@@ -94,6 +98,10 @@ public class Main {
 
 			// 人間グループに誰もいなくなれば、人間グループの敗北
 			if (humans.isEmpty()) {
+				System.out.println("");
+				System.out.println("★★ ==== 決着がついた！！ ==== ★★");
+				System.out.println("");
+				System.out.println(" #### 人間たちは敗北した ####");
 				break;
 			}
 			

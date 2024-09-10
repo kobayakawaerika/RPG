@@ -20,7 +20,7 @@ public class Monster extends Living{
 			target.setHp(target.getHp() - damege);
 			
 			// コンソールにステータスを表示
-			System.out.println(this.name + "が" + this.weapon + "で攻撃！" + target.getName() + "に" + damege + "のダメージを与えた。");
+			System.out.println("「" + this.name + "」" + "が" + "「" + this.weapon + "」" + "で攻撃！" + "「" + target.getName() + "」" + "に" + damege + "のダメージを与えた。");
 
 		}
 
